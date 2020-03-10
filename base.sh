@@ -430,7 +430,7 @@ do
 done
 if [[ $int == 1 ]]; then
 
-  wget -P /mnt https://raw.githubusercontent.com/poruncov/archlinux-script-install/master/chroot.sh
+  wget -P /mnt https://raw.githubusercontent.com/poruncov/arch-test/master/chroot.sh
   chmod +x /mnt/chroot.sh
   echo 'первый этап готов ' 
   echo 'ARCH-LINUX chroot' 
@@ -442,7 +442,7 @@ echo "################################################################"
 umount -a
 reboot  
   elif [[ $int == 2 ]]; then
-  arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/poruncov/archlinux-script-install/master/chroot.sh)"
+  arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/poruncov/arch-test/master/chroot.sh)"
 echo "################################################################"
 echo "###################    T H E   E N D      ######################"
 echo "################################################################"
@@ -728,8 +728,7 @@ do
     :
 done
 if [[ $int == 1 ]]; then
-
-  wget -P /mnt https://raw.githubusercontent.com/poruncov/archlinux-script-install/master/chroot.sh
+  wget -P /mnt https://raw.githubusercontent.com/poruncov/arch-test/master/chroot.sh
   chmod +x /mnt/chroot.sh 
   echo 'первый этап готов ' 
   echo 'ARCH-LINUX chroot' 
@@ -741,7 +740,7 @@ echo "################################################################"
 umount -a
 reboot    
   elif [[ $int == 2 ]]; then
-  arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/poruncov/archlinux-script-install/master/chroot.sh)"
+  arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/poruncov/arch-test/master/chroot.sh)"
 echo "################################################################"
 echo "###################    T H E   E N D      ######################"
 echo "################################################################"
