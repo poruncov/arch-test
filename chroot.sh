@@ -300,14 +300,14 @@ do
     :
 done
 if [[ $i_grub == 2 ]]; then
-pacman -S grub grub-customizer os-prober --noconfirm
+pacman -S grub   --noconfirm
 lsblk -f
 read -p "Укажите диск куда установить GRUB (sda/sdb): " x_boot
 grub-install /dev/$x_boot
 grub-mkconfig -o /boot/grub/grub.cfg
 echo " установка завершена "
 elif [[ $i_grub == 1 ]]; then
-pacman -S grub --noconfirm
+pacman -S grub grub-customizer os-prober  --noconfirm
 lsblk -f
 read -p "Укажите диск куда установить GRUB (sda/sdb): " x_boot
 grub-install /dev/$x_boot
@@ -940,16 +940,14 @@ gwenview
 steam steam-native-runtime 
 spectacle vlc  telegram-desktop  "
 echo ""
-echo " установим все или на ваш выбор? "
 while 
     read -n1 -p  "
-    1 - все
+    1 - да
     
-    2 - на выбор
     
     0 - пропустить " i_prog # sends right after the keypress
     echo ''
-    [[ "$i_prog" =~ [^120] ]]
+    [[ "$i_prog" =~ [^10] ]]
 do
     :
 done
@@ -957,10 +955,6 @@ if [[ $i_prog == 0 ]]; then
 clear
 echo " Установка пропущена "
 elif [[ $i_prog == 1 ]]; then
-pacman -S flameshot blueman filezilla htop gparted neofetch screenfetch gwenview steam steam-native-runtime spectacle vlc  gvfs-mtp gvfs-afc  telegram-desktop     --noconfirm
-clear
-echo " установка завершена "
-elif [[ $i_prog == 2 ]]; then
 echo "#############################################################################"
 echo ""
 echo " Будете ли вы подключать Android или Iphone к ПК через USB? "
