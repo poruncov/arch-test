@@ -479,7 +479,7 @@ while
     read -n1 -p  "
     1 - да  
     
-    0 - нет : " i_kde   # sends right after the keypress
+    0 - нет : " i_xfce   # sends right after the keypress
     echo ''
     [[ "$i_xfce" =~ [^10] ]]
 do
@@ -516,7 +516,7 @@ while
     read -n1 -p  "
     1 - да  
     
-    0 - нет : " i_kde   # sends right after the keypress
+    0 - нет : " i_lxde   # sends right after the keypress
     echo ''
     [[ "$i_lxde" =~ [^10] ]]
 do
@@ -549,7 +549,7 @@ while
     read -n1 -p  "
     1 - да  
     
-    0 - нет : " i_kde   # sends right after the keypress
+    0 - нет : " i_deepin   # sends right after the keypress
     echo ''
     [[ "$i_deepin" =~ [^10] ]]
 do
@@ -582,9 +582,9 @@ while
     read -n1 -p  "
     1 - да  
     
-    0 - нет : " i_kde   # sends right after the keypress
+    0 - нет : " i_mate   # sends right after the keypress
     echo ''
-    [[ "$i_deepin" =~ [^10] ]]
+    [[ "$i_mate" =~ [^10] ]]
 do
     :
 done
@@ -615,7 +615,7 @@ while
     read -n1 -p  "
     1 - да  
     
-    0 - нет : " i_kde   # sends right after the keypress
+    0 - нет : " i_lxqt   # sends right after the keypress
     echo ''
     [[ "$i_deepin" =~ [^10] ]]
 do
