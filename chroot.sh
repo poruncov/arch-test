@@ -690,8 +690,8 @@ elif [[ $i_natro  == 1 ]]; then
 pacman -Sy nitrogen  --noconfirm
 fi
 fi
-clear
-echo " Установка i3 завершена " 
+clear 
+echo " i3wm успешно установлен " 
 ####
 echo ""
 echo " Установим еще одно DE/WM? "
@@ -1299,14 +1299,10 @@ fi
 #############################################################################
 echo ""
 echo ""
-echo " установим офисный пакет для работы с документами? : "
+echo " установим офисный пакет libreoffice  для работы с документами? : "
 while 
     read -n1 -p  "
-    1 - WPS-office 
-    
-    2 - libreoffice
-    
-    3 - onlyoffice
+    1 - да 
     
     0 - нет: " t_office # sends right after the keypress
     echo ''
@@ -1318,47 +1314,9 @@ if [[ $t_office == 0 ]]; then
     clear
     echo ' установка пропущена ' 
 elif [[ $t_office == 1 ]]; then
-####    
-    cd /home/$username
-    git clone https://aur.archlinux.org/wps-office.git
-    chown -R $username:users /home/$username/wps-office
-    chown -R $username:users /home/$username/wps-office/PKGBUILD 
-    cd /home/$username/wps-office  
-    sudo -u $username  makepkg -si --noconfirm  
-    rm -Rf /home/$username/wps-office
-###########
-    cd /home/$username
-git clone https://aur.archlinux.org/wps-office-extension-russian-dictionary.git
-    chown -R $username:users /home/$username/wps-office-extension-russian-dictionary
-    chown -R $username:users /home/$username/wps-office-extension-russian-dictionary/PKGBUILD 
-    cd /home/$username/wps-office-extension-russian-dictionary
-    sudo -u $username  makepkg -si --noconfirm  
-    rm -Rf /home/$username/wps-office-extension-russian-dictionary
-####
-    cd /home/$username
-    git clone https://aur.archlinux.org/ttf-wps-win10.git
-    chown -R $username:users /home/$username/ttf-wps-win10
-    chown -R $username:users /home/$username/ttf-wps-win10/PKGBUILD 
-    cd /home/$username/ttf-wps-win10  
-    sudo -u $username  makepkg -si --noconfirm  
-    rm -Rf /home/$username/ttf-wps-win10
-####
-clear
-echo " установка WPS office завершена "
-elif [[ $t_office == 2 ]]; then
 pacman -S libreoffice-still libreoffice-still-ru --noconfirm
 clear
 echo " установка libreoffice завершена "
-elif [[ $t_office == 3 ]]; then
-    cd /home/$username
-   git clone https://aur.archlinux.org/onlyoffice-bin.git
-    chown -R $username:users /home/$username/onlyoffice-bin
-    chown -R $username:users /home/$username/onlyoffice-bin/PKGBUILD 
-    cd /home/$username/onlyoffice-bin 
-    sudo -u $username  makepkg -si --noconfirm  
-    rm -Rf /home/$username/onlyoffice-bin
-clear 
-echo " установка onlyoffice завершена "
 fi
 #############################################################################
 echo ""
