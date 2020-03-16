@@ -1,6 +1,6 @@
 #!/bin/bash
-emerge --ask sys-libs/gpm x11-terms/sakura net-wireless/blueman  x11-misc/compton app-admin/conky app-portage/layman x11-misc/polybar x11-base/xorg-drivers x11-base/xorg-server media-video/simplescreenrecorder xfce-extra/tumbler media-video/vlc x11-wm/i3-gaps www-client/google-chrome  net-im/telegram-desktop media-sound/pavucontrol app-editors/gedit net-misc/connman-gtk app-portage/eix app-portage/portage-utils app-shells/zsh app-shells/gentoo-zsh-completions x11-apps/setxkbmap media-gfx/ristretto lxde-base/lxappearance
-
+emerge --ask  x11-terms/sakura net-wireless/blueman  x11-misc/compton app-admin/conky app-portage/layman x11-misc/polybar x11-base/xorg-drivers x11-base/xorg-server media-video/simplescreenrecorder xfce-extra/tumbler media-video/vlc x11-wm/i3-gaps www-client/google-chrome  net-im/telegram-desktop media-sound/pavucontrol app-editors/gedit net-misc/connman-gtk app-portage/eix app-portage/portage-utils app-shells/zsh app-shells/gentoo-zsh-completions x11-apps/setxkbmap media-gfx/ristretto lxde-base/lxappearance
+#sys-libs/gpm
 
 ########     layman           ####
 # * jorgicio                  [Git       ] (https://github.com/#jorgicio/jorgicio-gentoo.git )
