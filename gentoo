@@ -1,0 +1,12 @@
+#!/bin/bash
+mkfs.ext4 /dev/sda2 -L root
+swapon /dev/sda4
+mount /dev/sda2 /mnt/gentoo
+cd /mnt/gentoo
+wget http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage4-amd64-minimal/stage4-amd64-minimal-20200311T214502Z.tar.xz
+tar xpvf stage4-amd64-minimal-20200311T214502Z.tar.xz  --xattrs-include='*.*' --numeric-owner
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
