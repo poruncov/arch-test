@@ -6,5 +6,5 @@ emerge --ask  x11-terms/sakura net-wireless/blueman  x11-misc/compton app-admin/
 # * jorgicio                  [Git       ] (https://github.com/#jorgicio/jorgicio-gentoo.git )
 # * pentoo                    [Git       ] (https://github.com/#pentoo/pentoo-overlay.git  )
 # * ROKO__                    [Git       ] (https://github.com/sandikata/ROKO__.git       
-
+emerge --ask --verbose --update --deep --newuse @world
 # app-shells/zsh-autosuggestions app-shells/zsh-syntax-highlighting
