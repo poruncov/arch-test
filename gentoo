@@ -1,14 +1,11 @@
 #!/bin/bash
-mkfs.ext2 /dev/sdb1 -L boot
-mkfs.ext4 /dev/sdb3 -L root
-
-mkfs.ext4 /dev/sdb4 -L home
-mkswap /dev/sdb2
-swapon /dev/sdb2
-mount /dev/sdb3 /mnt/gentoo
+mkfs.ext4 /dev/sda1 -L root
+mkswap /dev/sda2
+swapon /dev/sda2
+mount /dev/sda1 /mnt/gentoo
 cd /mnt/gentoo
-wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20200315T214502Z/stage3-amd64-20200315T214502Z.tar.xz
-tar xpvf stage3-amd64-20200315T214502Z.tar.xz --xattrs-include='*.*' --numeric-owner
+wget http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage4-amd64-minimal/stage4-amd64-minimal-20200315T214502Z.tar.xz
+tar xpvf stage4-amd64-minimal-20200315T214502Z.tar.xz --xattrs-include='*.*' --numeric-owner
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
