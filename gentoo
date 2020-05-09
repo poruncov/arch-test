@@ -1,12 +1,9 @@
 #!/bin/bash
-mkfs.ext4 /dev/sdb1 -L root
-mkswap /dev/sdb2
 swapon /dev/sdb2
+mount /dev/sdb2 /mnt/gentoo/boot
 mount /dev/sdb1 /mnt/gentoo
 cd /mnt/gentoo
-wget  https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20200329T214502Z/stage3-amd64-20200329T214502Z.tar.xz
-tar xpvf stage3-amd64-20200329T214502Z.tar.xz  --xattrs-include='*.*' --numeric-owner
-cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
 mount --make-rslave /mnt/gentoo/sys
