@@ -2,7 +2,7 @@
 
 cd /mnt/gentoo
 wget http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage4-amd64-minimal/stage4-amd64-minimal-20200516T183750Z.tar.xz
-tarxpvf stage4-amd64-minimal-20200516T183750Z.tar.xz  --xattrs-include='*.*' --numeric-owner
+tar xpvf stage4-amd64-minimal-20200516T183750Z.tar.xz  --xattrs-include='*.*' --numeric-owner
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
