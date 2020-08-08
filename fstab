@@ -5,8 +5,5 @@ UUID=   none                  swap  sw                    0 0
 UUID=   /                     ext4  rw,relatime           0 1
 UUID=   /home                 ext4  rw,relatime           0 2
 
-#WINDOWS
 
 
-UUID=     /C                  ntfs  ro,nosuid,nodev,user_id=0,group_id=0,allow_other,discard            0 0
-UUID=     /D                  ntfs  ro,nosuid,nodev,user_id=0,group_id=0,allow_other,discard            0 0
