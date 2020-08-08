@@ -1,0 +1,119 @@
+ cd /mnt/gentoo
+    tar xpvf stage(tarboll)  --xattrs-include='*.*' --numeric-owner
+    cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+    mount --types proc /proc /mnt/gentoo/proc
+    mount --rbind /sys /mnt/gentoo/sys
+    mount --make-rslave /mnt/gentoo/sys
+    mount --rbind /dev /mnt/gentoo/dev
+    mount --make-rslave /mnt/gentoo/dev
+
+    3 настройка маке конф
+
+    nano /etc/portege/make.conf
+
+    изменить 
+
+    COMMON_FLAGS="-march=sandybridge  -O3 -pipe"
+    MAKEOPTS="-j17 -l27"
+    EMERGE_DEFAULT_OPTS = "--jobs 5 " 
+    ACCEPT_LICENSE="*"
+    LANGUAS="ru"
+    L10N="ru "
+    GRUB_PLATFORMS="efi-64"
+    USE=" X -libglvnd bluetooth  pulseaudio alsa unicode dbus -gdm -lvm gtk qt4 qt5 -gnome  -kde -dvd -cdr"
+    VIDEO_CARDS="nvidia"
+    PYTHON_TARGETS="python3_6 python3_8 python3_7 python2_7"
+
+    4 синхранизация дерева portege
+
+    emerge --sync
+
+    5 выбор профиля для xfce i3wm профиль декстоп
+
+    eselect profile list 
+
+    eselect profile set 20
+
+    6 обновление мира
+    emerge --ask --verbose --update --deep --newuse @world
+
+    7 время
+
+    echo "Europe/Moscow" > /etc/timezone
+
+
+    nano -w /etc/conf.d/hwclock
+
+    прописать вместо UTC
+
+    clock="local"
+
+    emerge --config sys-libs/timezone-data
+
+    8 язык системы (локале)
+    
+    nano /etc/locale.gen
+
+    en_US.UTF-8 UTF-8
+    ru_RU.UTF-8 UTF-8
+
+    locale-gen
+
+    eselect locale list
+    eselect locale set 5 (ru_RU.UTF-8 UTF-8)
+
+    nano /etc/conf.d/consolefont 
+    вписать cyr-sun16
+
+    rc-update add consolefont boot
+
+    9 fstab
+
+    UUID=                                /boot                 vfat               auto,noatime                      0 2
+    UUID=     none                  swap                sw                               0 0 
+    UUID=     /                     ext4               discard,rw,relatime               0 1 
+    UUID=     /home                 ext4               discard,rw,relatime               0 2 
+
+    10 ядро
+
+    emerge --ask gentoo-sources genkernel 
+    genkernel all
+
+    11 сеть 
+
+    nano  /etc/conf.d/net
+
+    впишем 
+
+    config_ваш_интерфейс="dhcp"
+
+    вкл автозагрузку сети 
+
+    cd /etc/init.d
+
+    ln -s net.lo net.ваш_интерфейс
+    rc-update add net.ваш_интерфейс default
+
+    12 Имя машины
+
+    nano /etc/conf.d/hostname
+
+    13 fs 
+
+    emerge --ask e2fsprogs dosfstools ntfs3g
+
+    14 добавление user и пароль для root
+
+    passwd 
+    useradd -m -G users,wheel,audio,video -s /bin/bash user
+    passwd user
+
+    15 GRUB
+
+    emerge --ask sys-boot/grub:2
+
+    grub-install --target=x86_64-efi --efi-directory=/boot
+
+    grub-mkconfig -o /boot/grub/grub.cfg
+    все) 
+
