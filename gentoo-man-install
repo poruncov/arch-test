@@ -13,15 +13,15 @@
 
     изменить 
 
-    COMMON_FLAGS="-march=sandybridge  -O3 -pipe"
-    MAKEOPTS="-j17 -l27"
-    EMERGE_DEFAULT_OPTS = "--jobs 5 " 
+    COMMON_FLAGS="-march=native  -O2 -pipe"
+    MAKEOPTS="-j17 -l27" количество потоков которые устаивают в сборке
+    EMERGE_DEFAULT_OPTS = "--jobs 5 " паралельная сборка
     ACCEPT_LICENSE="*"
     LANGUAS="ru"
     L10N="ru "
-    GRUB_PLATFORMS="efi-64"
+    GRUB_PLATFORMS="efi-64" если efi
     USE=" X -libglvnd bluetooth  pulseaudio alsa unicode dbus -gdm -lvm gtk qt4 qt5 -gnome  -kde -dvd -cdr"
-    VIDEO_CARDS="nvidia"
+    VIDEO_CARDS="nvidia"  драйвер который будет использоваться для видеокарты
     PYTHON_TARGETS="python3_6 python3_8 python3_7 python2_7"
 
     4 синхранизация дерева portege
@@ -38,9 +38,9 @@
     emerge --ask --verbose --update --deep --newuse @world
 
     7 время
-
+    
     echo "Europe/Moscow" > /etc/timezone
-
+    emerge --config sys-libs/timezone-data
 
     nano -w /etc/conf.d/hwclock
 
@@ -48,7 +48,7 @@
 
     clock="local"
 
-    emerge --config sys-libs/timezone-data
+    
 
     8 язык системы (локале)
     
